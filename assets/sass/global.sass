@@ -17,6 +17,13 @@
     font-family: 'Researcher Thin'
     src: url("../fonts/Researcher Thin.otf")
 
+@mixin login_message
+    font-family: 'Researcher Bold'
+    text-align: center
+    font-weight: bold
+    user-select: none
+    margin-top: 2rem
+
 .website-container
     position: relative
     z-index: 1
@@ -74,13 +81,13 @@
             color: #fff
             width: 50%
             border: 0
-        .error-message
-            font-family: 'Researcher Bold'
-            text-align: center
-            font-weight: bold
-            user-select: none
-            margin-top: 2rem
+        .error-message,
+            @include login_message
             color: red
+        .success-message
+            @include login_message
+            color: green
+            
 
 .background-video
     position: fixed

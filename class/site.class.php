@@ -11,6 +11,10 @@
         /**
          * @var bool
          */
+        private bool $isLogged;
+        /**
+         * @var bool
+         */
         private $post = false;
         /**
          * @var string
@@ -28,6 +32,10 @@
             if ($this->post) {
                 if (!isset($this->post->password)) return;
                 if ($this->password != $this->post->password) return $this->set_error("Wrong passphrase");
+                else { // if the password is correct
+                    // setting that the user is logged.
+                    $this->isLogged = true;
+                }
             }
         }
         /**
@@ -62,5 +70,10 @@
         public function set_password(string $password): object {
             $this->password = $password;
             return $this;
+        }
+        /** */
+        public function login_success(): bool {
+            if ($this->post) return $this->isLogged;
+            return false;
         }
     }

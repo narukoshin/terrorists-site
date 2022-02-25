@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/global.min.css">
+    <link rel="stylesheet" href="assets/css/global.min.css?v=6">
 </head>
 <body>
     <div class="website-container">
@@ -25,6 +25,23 @@
                     echo <<<HTML
                         <div class="error-message">$error->message</div>
                     HTML;
+                } else {
+                    if ($site->login_success()){
+                        echo <<<HTML
+                            <div class="success-message">Login success</div>
+                            <!-- redirecting the user to the next page -->
+                            <script type="text/javascript">
+                                let     next_page = "http://terrorist.test"    // the page where the user will be redirected
+                                let     seconds   = 1   // seconds to redirect the user
+
+                                // setting the timer
+                                setTimeout(() => {
+                                    // redirecting the user
+                                    window.location.href = next_page
+                                }, (1000 * seconds))
+                            </script>
+                        HTML;
+                    }
                 }
             ?>
         </form>

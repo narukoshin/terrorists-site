@@ -29,5 +29,7 @@
             ?>
         </form>
     </div>
+    <video class="background-video" autoplay muted loop><source type="video/mp4" src="assets/img/Untitled2.mp4" /></video>
+    <div class="background-video--dim"></div>
 </body>
 </html>
